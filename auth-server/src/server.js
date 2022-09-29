@@ -12,6 +12,7 @@ const authRoutes = require('./auth/routes.js');
 
 // Prepare the express app
 const app = express();
+const PORT = process.env || 3002;
 
 // App Level MW
 app.use(cors());
@@ -29,9 +30,9 @@ app.use(errorHandler);
 
 module.exports = {
   server: app,
-  start: (port) => {
-    app.listen(port, () => {
-      console.log(`Server Up on ${port}`);
+  start: (PORT) => {
+    app.listen(PORT, () => {
+      console.log(`Server Up on ${PORT}`);
     });
   },
 };
